@@ -47,14 +47,14 @@ pipeline {
       }
     }
 
-   /* stage("build & SonarQube analysis") {
+   stage("build & SonarQube analysis") {
             agent any
             steps {
               withSonarQubeEnv('SonarCube') {
                 bat 'mvn clean package sonar:sonar'
               }
             }
-          }*/
+          }
 
 
    
