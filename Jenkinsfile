@@ -8,7 +8,7 @@ pipeline {
     stages {
     stage('Build'){
       steps {
-        bat 'mvn clean install'
+        sh 'mvn clean install'
       }
         post{
             success{
@@ -19,7 +19,7 @@ pipeline {
     
     stage('Test'){
       steps {
-        bat "mvn test"
+        sh "mvn test"
       }
       post{
             success{
@@ -30,7 +30,7 @@ pipeline {
 
     stage('Coverage Code'){
       steps {
-        bat "mvn cobertura:cobertura -Dcobertura.report.format=xml"
+        sh "mvn cobertura:cobertura -Dcobertura.report.format=xml"
       }
       post{
             success{
