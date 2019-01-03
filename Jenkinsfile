@@ -16,7 +16,14 @@ pipeline {
             }
         }  
     }
-    
+     stage("build & SonarQube analysis") {
+            agent any
+            steps {
+              withSonarQubeEnv('SonarCube') {
+                sh 'mvn clean package sonar:sonar'
+              }
+            }
+          }
     stage('Test'){
       steps {
         sh "mvn test"
@@ -47,14 +54,7 @@ pipeline {
       }
     }
 
-   stage("build & SonarQube analysis") {
-            agent any
-            steps {
-              withSonarQubeEnv('SonarCube') {
-                sh 'mvn clean package sonar:sonar'
-              }
-            }
-          }
+  
 
 
    
