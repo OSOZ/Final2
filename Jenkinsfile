@@ -42,8 +42,8 @@ pipeline {
 
     stage('JavaDoc Generation'){
       steps {
-        bat "mvn javadoc:javadoc"
-        bat "mvn site"
+        sh "mvn javadoc:javadoc"
+        sh "mvn site"
       }
     }
 
@@ -51,7 +51,7 @@ pipeline {
             agent any
             steps {
               withSonarQubeEnv('SonarCube') {
-                bat 'mvn clean package sonar:sonar'
+                sh 'mvn clean package sonar:sonar'
               }
             }
           }
