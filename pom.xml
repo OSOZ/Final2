@@ -108,12 +108,7 @@
       </resource>
     </resources>
     <plugins>
-      <plugin>
-  <groupId>io.gatling</groupId>
-  <artifactId>gatling-maven-plugin</artifactId>
-  <version>MANUALLY_REPLACE_WITH_LATEST_VERSION</version>
-</plugin>
-
+    
 
       <plugin>
           <artifactId>maven-clean-plugin</artifactId>
