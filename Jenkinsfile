@@ -21,14 +21,7 @@ pipeline {
 						bat 'mvn gatling:test'
 					}
 }
-     stage("build & SonarQube analysis") {
-            agent any
-            steps {
-              withSonarQubeEnv('SonarCube') {
-                sh 'mvn clean package sonar:sonar'
-              }
-            }
-          }
+    
     stage('Test'){
       steps {
         sh "mvn test"
@@ -51,6 +44,20 @@ pipeline {
         }
 
     }
+	     stage('Performance Test'){
+					steps{
+						bat 'mvn gatling:test'
+					}
+}
+    
+	     stage("build & SonarQube analysis") {
+            agent any
+            steps {
+              withSonarQubeEnv('SonarCube') {
+                sh 'mvn clean package sonar:sonar'
+              }
+            }
+          }
 
     stage('JavaDoc Generation'){
       steps {
@@ -58,6 +65,7 @@ pipeline {
         sh "mvn site"
       }
     }
+	    
   stage('Packaging'){
 			steps{
 				bat 'mvn package'
