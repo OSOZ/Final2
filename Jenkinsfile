@@ -18,7 +18,7 @@ pipeline {
     }
         stage('Performance Test'){
 					steps{
-						bat 'mvn gatling:test'
+						sh 'mvn gatling:test'
 					}
 }
     
@@ -46,7 +46,7 @@ pipeline {
     }
 	     stage('Performance Test'){
 					steps{
-						bat 'mvn gatling:test'
+						sh 'mvn gatling:test'
 					}
 }
     
@@ -68,7 +68,7 @@ pipeline {
 	    
   stage('Packaging'){
 			steps{
-				bat 'mvn package'
+				sh 'mvn package'
 		}
 }
 
