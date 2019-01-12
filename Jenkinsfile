@@ -70,7 +70,11 @@ pipeline {
 
 
    
-    
+  stage('Archivage Nexus'){
+		 steps {
+        	echo 'Deploying ..'
+      	}
+}  
     stage('Deploy'){
       steps {
         echo 'Deploying ..'
