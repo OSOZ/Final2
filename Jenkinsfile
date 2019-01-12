@@ -16,6 +16,11 @@ pipeline {
             }
         }  
     }
+        stage('Performance Test'){
+					steps{
+						bat 'mvn gatling:test'
+					}
+}
      stage("build & SonarQube analysis") {
             agent any
             steps {
@@ -53,7 +58,11 @@ pipeline {
         sh "mvn site"
       }
     }
-  
+  stage('Packaging'){
+			steps{
+				bat 'mvn package'
+		}
+}
 
 
    
