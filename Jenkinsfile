@@ -16,11 +16,7 @@ pipeline {
             }
         }  
     }
-        stage('Performance Test'){
-					steps{
-						sh 'mvn gatling:test'
-					}
-}
+       
     
     stage('Test'){
       steps {
@@ -46,7 +42,7 @@ pipeline {
     }
 	     stage('Performance Test'){
 					steps{
-						sh 'mvn gatling:test'
+						echo 'success'
 					}
 }
     
