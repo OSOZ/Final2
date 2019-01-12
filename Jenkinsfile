@@ -51,7 +51,7 @@ pipeline {
             steps {
               //withSonarQubeEnv('SonarCube') {
                 echo 'success'
-              }
+          //    }
             }
           }
 
